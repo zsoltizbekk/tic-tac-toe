@@ -1,0 +1,215 @@
+@font-face {
+    font-family: 'myfont';
+    src: url('font.ttf');
+}
+
+:root{
+    --grid-size: 14vh;
+    --header-height: 10vh;
+    --container-height: 90vh;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    font-family: myfont, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: var(--container-height);
+    display: grid;
+    grid-template-columns: repeat(3, var(--grid-size));
+    grid-template-rows: repeat(3, var(--grid-size));
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    height: var(--header-height);
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+
+.container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--grid-size);
+    height: var(--grid-size);
+    background-color: rgb(236, 236, 236);
+    /*background-color: rgb(221, 221, 221);
+    */
+    border-radius: 5px;
+    font-size: 4.5rem;
+}
+
+.tile-animated {
+    animation-name: animate;
+    animation-duration: 0.7s;
+    background-color: rgb(221, 221, 221);
+}
+
+.tile:hover {
+    animation-name: opacity-to-zero;
+    animation-duration: 0.7s;
+    opacity: 0;
+}
+
+@keyframes opacity-to-zero {
+    from {opacity: 1}
+    to {opacity: 0}
+}
+
+.modal-game, .modal-Aigame, .modal-player-game, .modal-win{
+    display: none;
+    position:fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    animation-name: animate;
+    animation-duration: 0.7s
+}
+
+@keyframes animate {
+    from {top:0; opacity:0}
+    to {top:0; opacity:1}
+}
+  
+.modal-content, .modal-Ai-content, .modal-player-content, .modal-win-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 300px;
+}
+.modal-player-content {
+    justify-content: space-between;
+}
+
+.input-text{
+    font-family: myfont, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.team {
+    display: flex;
+}
+
+.close, .ai-close, .player-close{
+    color: #aaa;
+    position: relative;
+    top: -73px;
+    right: -25px;
+    float:right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.win-close {
+    color: #aaa;
+    position: relative;
+    top: -50px;
+    right: -25px;
+    float:right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+  
+.close:hover, .close:focus, 
+.ai-close:hover, .ai-close:focus, 
+.player-close:hover, .player-close:focus, 
+.win-close:hover, .win-close:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.startBtn {
+    font-family: myfont, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.5rem;
+    background-color: #5800FF;
+    color: #FFC600;
+    border: none;
+    border-radius: 5px;
+}
+.startBtn:hover, .startBtn:focus {
+    cursor: pointer;
+    
+    animation-name: color-change;
+    animation-duration: 0.7s;
+    background-color: #E900FF;
+    filter: blur(0.5px);
+}
+
+@keyframes color-change {
+    from{background-color: #5800FF;
+        filter: blur(0px)}
+    to{background-color: #E900FF;
+        filter: blur(0.5px)}
+}
+
+
+.okBtn, 
+.ai-btn,
+.player-btn,
+.win-btn {
+    font-family: myfont, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 20px;
+    position: relative;
+    left: auto;
+    right: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #5800FF;
+    color: #FFC600;
+    border: none;
+    border-radius: 5px;
+}
+
+.okBtn:hover, .okBtn:focus, 
+.ai-btn:hover, .ai-btn:focus,
+.player-btn:hover, .player-btn:focus, 
+.win-btn:hover, .win-btn:focus {
+    cursor: pointer;
+    
+    animation-name: color-change;
+    animation-duration: 0.7s;
+    background-color: #E900FF;
+    filter: blur(0.5px);
+}
+
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #383838;
+    color: #FFC600;
+}
+
+.footer-img {
+    filter: invert(63%) sepia(61%) saturate(774%) hue-rotate(4deg) brightness(111%) contrast(102%);
+}
+
+.footer-img:hover {
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(360deg) scale(1.4);
+}

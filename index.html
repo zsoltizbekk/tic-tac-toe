@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="title">Tic-Tac-Toe</div>
+        <button class="startBtn">Start Game</button>
+    </div>
+    <div class="container"></div>
+
+    <div class="modal-game" id="myModal-game">
+        <div class="modal-content">
+            <div class="modal-radio">
+                <div class="mode">
+                    <div>
+                        <input type="radio" id="vsPlayer" name="game-mode" value="vsPlayer" checked>
+                        <label for="vsPlayer">vs Player</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="vsAi" name="game-mode" value="vsAi">
+                        <label for="vsAi">vs AI</label>
+                    </div>
+                </div>
+            </div>
+            <span class="close">&times;</span>
+            <button class="okBtn">OK</button>
+        </div>
+
+
+    </div>
+    <div>
+        <div class="modal-Aigame" id="myModal-ai">
+            <div class="modal-Ai-content">
+                <div class="modal-Ai-radio">
+                    <div class="team-ai">
+                        <div>
+                            <input type="radio" id="team-x" name="chose-team" value="x" checked>
+                            <label for="x">X -1st</label>
+                        </div>
+    
+                        <div>
+                            <input type="radio" id="team-o" name="chose-team" value="o">
+                            <label for="o">O -2nd</label>
+                        </div>
+    
+                    </div>
+                </div>
+                <span class="ai-close">&times;</span>
+                <button class="ai-btn">OK</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="modal-player-game" id="myModal-player">
+            <div class="modal-player-content">
+                <div class="modal-player-input">
+                    <div class="team">
+                        <form action=""></form><div>
+                            <label>Player 1 name: </label>
+                            <input type="input" class="input-text" id="player-one" required>
+                        </div>
+    
+                        <div>
+                            <label>Player 2 name: </label>
+                            <input type="input" class="input-text" id="player-two" required>
+                        </div>
+    
+                    </div>
+                </div>
+                <span class="player-close">&times;</span>
+                <button class="player-btn">OK</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="modal-win" id="myModal-win">
+            <div class="modal-win-content">
+                <div class="winning"></div>
+                <span class="win-close">&times;</span>
+                <button class="win-btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Copyright © 2022 zsoltizbekk</p>
+        <a href="https://github.com/zsoltizbekk" target="_blank"><img class="footer-img" src="./github.png" alt="github" width="20px" height="20px"></a>
+    </footer>
+</body>
+</html>
