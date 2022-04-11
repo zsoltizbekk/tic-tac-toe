@@ -359,6 +359,12 @@ function gameOver(result) {
         winning.innerHTML = `DRAW!`;
         }
     }
+    let temp = document.getElementsByClassName("tile");
+    for (const iterator of temp) { 
+        iterator.innerHTML = " ";
+    }
+   
+   
     
     modalWinningCloseBtn.onclick = function() {
         modalWinning.style.display = "none";
@@ -371,5 +377,5 @@ function gameOver(result) {
     modalWinningBtn.onclick = function() {
         modalWinning.style.display = "none";
         startGame();
-    }
+}
 }
