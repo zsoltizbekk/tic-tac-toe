@@ -220,41 +220,88 @@ function isItOver(){
     if (    gridArray[1] !== undefined &&
             gridArray[1] === gridArray[2] &&
             gridArray[2] === gridArray[3]){
+            let temp1 = document.getElementById("1");
+            let temp2 = document.getElementById("2");
+            let temp3 = document.getElementById("3");
+            temp1.style.backgroundColor = "#FFC600";
+            temp2.style.backgroundColor = "#FFC600";
+            temp3.style.backgroundColor = "#FFC600";
         return true;
     }
     if (    gridArray[4] !== undefined &&
             gridArray[4] === gridArray[5] &&
             gridArray[5] === gridArray[6]){
+            let temp1 = document.getElementById("4");
+            let temp2 = document.getElementById("5");
+            let temp3 = document.getElementById("6");
+            temp1.style.backgroundColor = "#FFC600";
+            temp2.style.backgroundColor = "#FFC600";
+            temp3.style.backgroundColor = "#FFC600";
         return true;
     }
     if (    gridArray[7] !== undefined &&
             gridArray[7] === gridArray[8] &&
-            gridArray[8] === gridArray[9]){ 
+            gridArray[8] === gridArray[9]){
+            let temp1 = document.getElementById("7");
+            let temp2 = document.getElementById("8");
+            let temp3 = document.getElementById("9");
+            temp1.style.backgroundColor = "#FFC600";
+            temp2.style.backgroundColor = "#FFC600";
+            temp3.style.backgroundColor = "#FFC600"; 
         return true;
     }
     if (    gridArray[1] !== undefined &&
             gridArray[1] === gridArray[4] &&
             gridArray[4] === gridArray[7]){
-
+            let temp1 = document.getElementById("1");
+            let temp2 = document.getElementById("4");
+            let temp3 = document.getElementById("7");
+            temp1.style.backgroundColor = "#FFC600";
+            temp2.style.backgroundColor = "#FFC600";
+            temp3.style.backgroundColor = "#FFC600";
         return true;
     }
     if (    gridArray[2] !== undefined &&
             gridArray[2] === gridArray[5] &&
             gridArray[5] === gridArray[8]){
+            let temp1 = document.getElementById("2");
+            let temp2 = document.getElementById("5");
+            let temp3 = document.getElementById("8");
+            temp1.style.backgroundColor = "#FFC600";
+            temp2.style.backgroundColor = "#FFC600";
+            temp3.style.backgroundColor = "#FFC600";
         return true; 
     }
     if (    gridArray[3] !== undefined &&
             gridArray[3] === gridArray[6] &&
             gridArray[6] === gridArray[9]){
+            let temp1 = document.getElementById("3");
+            let temp2 = document.getElementById("6");
+            let temp3 = document.getElementById("9");
+            temp1.style.backgroundColor = "#FFC600";
+            temp2.style.backgroundColor = "#FFC600";
+            temp3.style.backgroundColor = "#FFC600";
         return true; 
     }
     if (    gridArray[3] !== undefined &&
             gridArray[3] === gridArray[5] &&
             gridArray[5] === gridArray[7]){
+            let temp1 = document.getElementById("3");
+            let temp2 = document.getElementById("5");
+            let temp3 = document.getElementById("7");
+            temp1.style.backgroundColor = "#FFC600";
+            temp2.style.backgroundColor = "#FFC600";
+            temp3.style.backgroundColor = "#FFC600";
         return true;
     }if (   gridArray[1] !== undefined &&
             gridArray[1] === gridArray[5] &&
             gridArray[5] === gridArray[9]){
+            let temp1 = document.getElementById("1");
+            let temp2 = document.getElementById("5");
+            let temp3 = document.getElementById("9");
+            temp1.style.backgroundColor = "#FFC600";
+            temp2.style.backgroundColor = "#FFC600";
+            temp3.style.backgroundColor = "#FFC600";
         return true;
         }
     return false;
@@ -272,10 +319,10 @@ function randomMove() {
 }
 
 function gameOver(result) {
-    container.innerHTML = "";
+    //container.innerHTML = "";
     modalWinning.style.display = "block";
     if (result == "-"){
-        winning.innerHTML = `DRAW!`;   
+        winning.innerHTML = `DRAW!`;
     } else if (playerOne == ""){
         winning.innerHTML = `${result} WON!`;
         if (result == "X"){
@@ -290,7 +337,9 @@ function gameOver(result) {
         } else if (result == "O"){
             winning.innerHTML = `${playerTwo} WON!`;
             winning.style = "color: #E900FF;"
-        } else winning.innerHTML = `DRAW!`;
+        } else {
+        winning.innerHTML = `DRAW!`;
+        }
     }
     
     modalWinningCloseBtn.onclick = function() {

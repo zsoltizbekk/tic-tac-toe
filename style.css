@@ -88,7 +88,6 @@ body{
     from {top:0; opacity:0}
     to {top:0; opacity:1}
 }
-  
 .modal-content, .modal-Ai-content, .modal-player-content, .modal-win-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -101,6 +100,9 @@ body{
 }
 .modal-player-content {
     justify-content: space-between;
+}
+.modal-win-content {
+    width: 150px;
 }
 
 .input-text{
@@ -188,7 +190,6 @@ body{
 .player-btn:hover, .player-btn:focus, 
 .win-btn:hover, .win-btn:focus {
     cursor: pointer;
-    
     animation-name: color-change;
     animation-duration: 0.7s;
     background-color: #E900FF;
