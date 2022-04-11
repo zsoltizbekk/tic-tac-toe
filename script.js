@@ -277,12 +277,19 @@ function gameOver(result) {
     if (result == "-"){
         winning.innerHTML = `DRAW!`;   
     } else if (playerOne == ""){
-        winning.innerHTML = `${result} WON!`;    
+        winning.innerHTML = `${result} WON!`;
+        if (result == "X"){
+            winning.style = "color: #5800FF;";
+        } else {
+            winning.style = "color: #E900FF;"
+        }
     } else {
         if (result == "X"){
             winning.innerHTML = `${playerOne} WON!`;
+            winning.style = "color: #5800FF;";
         } else if (result == "O"){
             winning.innerHTML = `${playerTwo} WON!`;
+            winning.style = "color: #E900FF;"
         } else winning.innerHTML = `DRAW!`;
     }
     
