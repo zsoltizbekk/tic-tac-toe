@@ -1,3 +1,7 @@
+// function sleep(ms) {
+//     return new Promise(resolve => setTimeout(resolve, ms));
+// }
+
 const container = document.querySelector(".container");
 const startBtn = document.querySelector(".startBtn");
 
@@ -144,19 +148,16 @@ function playerVsAI(team) {
     takenTile = 0;
     if (team == "X"){
         for (const iterator of temp) {
-            iterator.onclick = function () {
+            iterator.onclick = function (event) {
                 if (iterator.innerHTML == ""){
                     iterator.innerHTML = "X";
                     iterator.className = "tile-animated";
                     iterator.style = "color: #5800FF;";
                     gridArray[iterator.id] = "X";
                     takenTile++;
-                    if (isItOver())
+                    if (isItOver()){
                             gameOver("X");
-                    else if (takenTile >= 9){
-                        if (isItOver())
-                            gameOver("X");
-                        else gameOver("-");
+                            event.stopPropagation();
                     } else {
                         let ran = randomMove();
                         let temp = document.getElementById(ran);
@@ -165,8 +166,10 @@ function playerVsAI(team) {
                         temp.style = "color: #E900FF;"
                         gridArray[ran] = "O";
                         takenTile++;
-                        if (isItOver())
+                        if (isItOver()){
                             gameOver("O");
+                            event.stopPropagation();
+                        }
                     }
                 } 
             }
@@ -184,30 +187,29 @@ function playerVsAI(team) {
         }
         for (const iterator of temp) { 
             if (iterator.innerHTML == ""){    
-                iterator.onclick = function () {
+                iterator.onclick = function (event) {
                     if (iterator.innerHTML == ""){ 
                         iterator.innerHTML = "O";
                         iterator.className = "tile-animated";
                         iterator.style = "color: #E900FF;"
                         gridArray[iterator.id] = "O";
-                        takenTile++;
-                        if (isItOver())
-                                gameOver("O");
+                        if (isItOver()){
+                            gameOver("O");
+                            event.stopPropagation();
+                        } else {
                         
-                        let ran = randomMove();
-                        let temp = document.getElementById(ran);
-                        temp.innerHTML = "X";
-                        temp.className = "tile-animated";
-                        temp.style = "color: #5800FF;";
-                        gridArray[ran] = "X";
-                        takenTile++;
-                        if (takenTile >= 9){
-                            if (isItOver())
+                            let ran = randomMove();
+                            let temp = document.getElementById(ran);
+                            temp.innerHTML = "X";
+                            temp.className = "tile-animated";
+                            temp.style = "color: #5800FF;";
+                            gridArray[ran] = "X";
+                            takenTile++;
+                            if (isItOver()){
                                 gameOver("X");
-                            else gameOver("-");
+                                event.stopPropagation();
+                            }
                         }
-                        if (isItOver())
-                            gameOver("X");
                     }
                 }   
             }
@@ -216,7 +218,12 @@ function playerVsAI(team) {
 }
 
 function isItOver(){
-    let over = false;
+    let takenTile = 0;
+    for (let i = 1; i < 10; i++){
+        if (gridArray[i] !== undefined)
+            takenTile++;
+    }
+
     if (    gridArray[1] !== undefined &&
             gridArray[1] === gridArray[2] &&
             gridArray[2] === gridArray[3]){
@@ -226,8 +233,9 @@ function isItOver(){
             temp1.style.backgroundColor = "#FFC600";
             temp2.style.backgroundColor = "#FFC600";
             temp3.style.backgroundColor = "#FFC600";
-        return true;
-    }
+            return true;
+            //gameOver(gridArray[1]);
+    } else
     if (    gridArray[4] !== undefined &&
             gridArray[4] === gridArray[5] &&
             gridArray[5] === gridArray[6]){
@@ -237,8 +245,9 @@ function isItOver(){
             temp1.style.backgroundColor = "#FFC600";
             temp2.style.backgroundColor = "#FFC600";
             temp3.style.backgroundColor = "#FFC600";
-        return true;
-    }
+            //gameOver(gridArray[4]);
+            return true;
+    } else
     if (    gridArray[7] !== undefined &&
             gridArray[7] === gridArray[8] &&
             gridArray[8] === gridArray[9]){
@@ -248,8 +257,9 @@ function isItOver(){
             temp1.style.backgroundColor = "#FFC600";
             temp2.style.backgroundColor = "#FFC600";
             temp3.style.backgroundColor = "#FFC600"; 
-        return true;
-    }
+            //gameOver(gridArray[7]);;
+            return true;
+    } else 
     if (    gridArray[1] !== undefined &&
             gridArray[1] === gridArray[4] &&
             gridArray[4] === gridArray[7]){
@@ -259,8 +269,9 @@ function isItOver(){
             temp1.style.backgroundColor = "#FFC600";
             temp2.style.backgroundColor = "#FFC600";
             temp3.style.backgroundColor = "#FFC600";
-        return true;
-    }
+            //gameOver(gridArray[1]);
+            return true;
+    } else
     if (    gridArray[2] !== undefined &&
             gridArray[2] === gridArray[5] &&
             gridArray[5] === gridArray[8]){
@@ -270,8 +281,9 @@ function isItOver(){
             temp1.style.backgroundColor = "#FFC600";
             temp2.style.backgroundColor = "#FFC600";
             temp3.style.backgroundColor = "#FFC600";
-        return true; 
-    }
+            //gameOver(gridArray[2]); 
+            return true;
+    } else 
     if (    gridArray[3] !== undefined &&
             gridArray[3] === gridArray[6] &&
             gridArray[6] === gridArray[9]){
@@ -281,8 +293,9 @@ function isItOver(){
             temp1.style.backgroundColor = "#FFC600";
             temp2.style.backgroundColor = "#FFC600";
             temp3.style.backgroundColor = "#FFC600";
-        return true; 
-    }
+            //gameOver(gridArray[3]); 
+            return true;
+    } else
     if (    gridArray[3] !== undefined &&
             gridArray[3] === gridArray[5] &&
             gridArray[5] === gridArray[7]){
@@ -292,8 +305,10 @@ function isItOver(){
             temp1.style.backgroundColor = "#FFC600";
             temp2.style.backgroundColor = "#FFC600";
             temp3.style.backgroundColor = "#FFC600";
-        return true;
-    }if (   gridArray[1] !== undefined &&
+            //gameOver(gridArray[3]);
+            return true;
+    } else
+    if (   gridArray[1] !== undefined &&
             gridArray[1] === gridArray[5] &&
             gridArray[5] === gridArray[9]){
             let temp1 = document.getElementById("1");
@@ -302,8 +317,11 @@ function isItOver(){
             temp1.style.backgroundColor = "#FFC600";
             temp2.style.backgroundColor = "#FFC600";
             temp3.style.backgroundColor = "#FFC600";
-        return true;
+            //gameOver(gridArray[1]);
+            return true;
         }
+    else if (takenTile == 9) gameOver("-");
+        
     return false;
 }
 
