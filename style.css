@@ -2,6 +2,8 @@
     font-family: 'myfont';
     src: url('font.ttf');
 }
+    
+
 
 :root{
     --grid-size: 14vh;
@@ -50,6 +52,7 @@ body{
     /*background-color: rgb(221, 221, 221);
     */
     border-radius: 5px;
+    caret-color: rgba(0,0,0,0);
     font-size: 4.5rem;
 }
 
